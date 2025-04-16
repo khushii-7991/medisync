@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Patient Dashboard | Smart Medical System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <script src="js/api.js" defer></script>
+    <script src="js/search.js" defer></script>
+    <script src="js/prescription.js" defer></script>
+    <script src="js/patient.js" defer></script>
+  </head>
+  <body class="bg-gray-50 min-h-screen font-sans">
+
+    <!-- Navbar -->
+    <nav class="bg-cyan-900 text-white p-5 flex justify-between items-center">
+      <h1 class="text-2xl font-bold">🩺 Patient Dashboard</h1>
+      <div class="flex items-center gap-4">
+        <span id="userName" class="text-sm"></span>
+        <button onclick="handleLogout()" class="text-sm bg-pink-900 px-4 py-2 rounded hover:bg-pink-800">Logout</button>
+      </div>
+    </nav>
+    
+    <script>
+      // Check if user is logged in
+      function checkAuth() {
+        const token = localStorage.getItem('token');
+        const userType = localStorage.getItem('userType');
+        const userName = localStorage.getItem('userName');
+        
+        if (!token || userType !== 'patient') {
+          window.location.href = 'patient_login.html';
+          return;
+        }
+        
+        document.getElementById('userName').textContent = `Welcome, ${userName}`;
+      }
+      
+      function handleLogout() {
+        api.auth.logout();
+      }
+      
+      // Check auth when page loads
+      checkAuth();
+    </script>
+
+    <!-- Main Section -->
+    <div class="max-w-7xl mx-auto py-12 px-6">
+
+      <!-- Welcome -->
+      <div class="text-center mb-10">
+        <h2 class="text-4xl font-bold text-cyan-800 mb-2" id="welcomeHeading">Welcome!</h2>
+        <p class="text-gray-600">Check prescriptions, book appointments, upload reports and track your health status here.</p>
+      </div>
+      
+      <!-- Alerts Section -->
+      <div id="alertsContainer" class="mb-8 hidden">
+        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+          <div class="flex">
+            <div class="flex-shrink-0">
+              <i class="fas fa-bell text-yellow-400"></i>
+            </div>
+            <div class="ml-3">
+              <p class="text-sm text-yellow-700" id="alertMessage"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grid Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <!-- View Prescriptions -->
+        <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition hover:scale-105">
+          <i class="fa-solid fa-notes-medical text-7xl text-pink-600 mb-4 block text-center"></i>
+          <h3 class="text-xl font-semibold text-center mb-4">View Prescriptions</h3>
+          <button onclick="viewPrescriptions()" class="w-full bg-pink-600 text-white py-2 rounded-xl hover:bg-pink-700">Check Now</button>
+        </div>
+
+        <!-- Book Appointment -->
+        <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition hover:scale-105">
+          <i class="fa-solid fa-calendar-plus text-7xl text-purple-600 mb-4 block text-center"></i>
+          <h3 class="text-xl font-semibold text-center mb-4">Book Appointment</h3>
+          <button onclick="bookAppointment()" class="w-full bg-purple-600 text-white py-2 rounded-xl hover:bg-purple-700">Book Now</button>
+        </div>
+
+        <!-- Upload Report -->
+        <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition hover:scale-105">
+          <i class="fa-solid fa-file-upload text-7xl text-blue-600 mb-4 block text-center"></i>
+          <h3 class="text-xl font-semibold text-center mb-4">Upload Reports</h3>
+          <a href="Upload_Reports.html">
+            <button class="w-full bg-blue-600 text-white py-2 rounded-xl hover:bg-blue-700">Upload</button>
+          </a>
+        </div>
+
+        <!-- Health Reminders -->
+        <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition hover:scale-105">
+          <i class="fa-solid fa-bell text-7xl text-green-600 mb-4 block text-center"></i>
+          <h3 class="text-xl font-semibold text-center mb-4">Health Reminders</h3>
+          <a href="health_reminders.html">
+            <button class="w-full bg-green-600 text-white py-2 rounded-xl hover:bg-green-700">View Reminders</button>
+          </a>
+        </div>
+
+        <!-- Emergency Help -->
+        <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition hover:scale-105">
+          <i class="fa-solid fa-phone-volume text-7xl text-red-600 mb-4 block text-center"></i>
+          <h3 class="text-xl font-semibold text-center mb-4">Emergency Help</h3>
+          <a href="emergency_help.html">
+            <button class="w-full bg-red-600 text-white py-2 rounded-xl hover:bg-red-700">Call Now</button>
+          </a>
+        </div>
+
+        <!-- My Appointments -->
+        <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition hover:scale-105">
+          <i class="fa-solid fa-calendar-days text-7xl text-teal-600 mb-4 block text-center"></i>
+          <h3 class="text-xl font-semibold text-center mb-4">My Appointments</h3>
+          <a href="my_appointments.html">
+            <button class="w-full bg-teal-600 text-white py-2 rounded-xl hover:bg-teal-700">View Appointments</button>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center text-sm text-gray-500 p-5">
+      © 2025 Smart Medical System. All rights reserved.
+    </footer>
+
+  </body>
+</html>

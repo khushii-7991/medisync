@@ -1,0 +1,139 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#outer {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("back4.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+#main {
+  width: 70vw;
+  height: 70vh;
+  display: flex;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+/* Left image side */
+#innerdiv1 {
+  flex: 1;
+  background-image: url("patient loginphoto.png");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Right login form */
+#innerdiv2 {
+  flex: 1.2;
+  background-color: white;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#innerdiv2 h2 {
+  /* color: #2c3e50; */
+  color: #16697a;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  text-align: center;
+  color: #7f8c8d;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input-group {
+  position: relative;
+}
+
+.input-group i {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: #aaa;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 0.75rem 0.75rem 0.75rem 2.5rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+.login-form button {
+  padding: 0.75rem;
+  background-color: #16697a;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-form button:hover {
+  background-color: #0f4049;
+}
+
+.forgot, .create-account {
+  text-align: center;
+  font-size: 0.85rem;
+  margin-top: 1rem;
+}
+
+.forgot a, .create-account a {
+  text-decoration: none;
+  color: #3498db;
+}
+
+@media (max-width: 768px) {
+  #main {
+    flex-direction: column;
+    height: auto;
+  }
+
+  #innerdiv1 {
+    height: 200px;
+    width: 100%;
+  }
+
+  #innerdiv2 {
+    padding: 2rem 1.5rem;
+    width: 100%;
+  }
+}

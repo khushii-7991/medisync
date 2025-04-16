@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Patient Login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/api.js" defer></script>
+</head>
+<body>
+  <div id="outer">
+    <div id="main">
+      <div id="innerdiv1"></div>
+
+      <div id="innerdiv2">
+        <h2>Patient Login</h2>
+        <p class="subtitle">Access your health dashboard</p>
+        <form class="login-form" id="loginForm">
+          <div class="input-group">
+            <i class="fas fa-envelope"></i>
+            <input type="email" id="email" placeholder="Email" required />
+          </div>
+          <div class="input-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="password" placeholder="Password" required />
+          </div>
+          <div id="errorMessage" class="error-message" style="display: none; color: red; margin-bottom: 10px;"></div>
+          <button type="submit" id="loginButton">Login</button>
+          <p class="forgot"><a href="#">Forgot Password?</a></p>
+          <p class="create-account">Don't have an account? <a href="signup.html">Create Account</a></p>
+        </form>
+        <script>
+          document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
+            const loginButton = document.getElementById('loginButton');
+            
+            try {
+              loginButton.disabled = true;
+              loginButton.textContent = 'Logging in...';
+              errorMessage.style.display = 'none';
+              
+              const response = await api.auth.login(email, password, 'patient');
+              
+              // Save user info
+              localStorage.setItem('userType', 'patient');
+              localStorage.setItem('userId', response.user.id);
+              localStorage.setItem('userName', response.user.name);
+              
+              // Redirect to patient dashboard
+              window.location.href = 'patient.html';
+            } catch (error) {
+              errorMessage.textContent = error.message || 'Login failed. Please try again.';
+              errorMessage.style.display = 'block';
+              loginButton.disabled = false;
+              loginButton.textContent = 'Login';
+            }
+          });
+        </script>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

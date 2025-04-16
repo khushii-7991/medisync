@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Doctor Dashboard | Smart Medical System</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body class="bg-gray-50 min-h-screen font-sans">
+
+  <!-- Navbar -->
+  <nav class="bg-cyan-900 text-white p-5 flex justify-between items-center">
+    <h1 class="text-2xl font-bold">👨‍⚕️ Doctor Dashboard</h1>
+    <a href="/" class="text-sm hover:underline">Logout</a>
+  </nav>
+
+  <!-- Main Section -->
+  <div class="max-w-7xl mx-auto py-12 px-6">
+
+    <!-- Welcome -->
+    <div class="text-center mb-10">
+      <h2 class="text-4xl font-bold text-cyan-800 mb-2">Welcome, Doctor!</h2>
+      <p class="text-gray-600">Manage patient records, prescriptions, appointments and reports from one place.</p>
+    </div>
+
+    <!-- Grid Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <!-- Add Prescription -->
+      <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition hover:scale-105">
+        <i class="fa-solid fa-prescription-bottle-medical text-7xl text-blue-700 mb-4 block text-center"></i>
+        <h3 class="text-xl font-semibold text-center mb-4">Add Prescription</h3>
+        <button class="w-full bg-blue-600 text-white py-2 rounded-xl hover:bg-blue-700">
+          <a href="priscription.html" class="block w-full h-full">Add Now</a>
+        </button>
+      </div>
+
+      <!-- View Appointments -->
+      <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition hover:scale-105">
+        <i class="fa-solid fa-calendar-check text-7xl text-green-600 mb-4 block text-center"></i>
+        <h3 class="text-xl font-semibold text-center mb-4">View Appointments</h3>
+        <button class="w-full bg-green-600 text-white py-2 rounded-xl hover:bg-green-700">
+          <a href="view_appointments.html" class="block w-full h-full">Check Now</a>
+        </button>
+      </div>
+
+      <!-- Patient Reports -->
+      <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition hover:scale-105">
+        <i class="fa-solid fa-file-medical text-7xl text-purple-600 mb-4 block text-center"></i>
+        <h3 class="text-xl font-semibold text-center mb-4">Patient Reports</h3>
+        <button class="w-full bg-purple-600 text-white py-2 rounded-xl hover:bg-purple-700">
+          <a href="reports.html" class="block w-full h-full">View Reports</a>
+        </button>
+      </div>
+
+      <!-- Emergency Requests -->
+      <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition hover:scale-105">
+        <i class="fa-solid fa-triangle-exclamation text-7xl text-red-600 mb-4 block text-center"></i>
+        <h3 class="text-xl font-semibold text-center mb-4">Emergency Requests</h3>
+        <button class="w-full bg-red-600 text-white py-2 rounded-xl hover:bg-red-700">
+          <a href="doctor_emergency_requests.html" class="block w-full h-full">View Now</a>
+        </button>
+      </div>
+
+      <!-- Today's Appointments -->
+      <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition hover:scale-105">
+        <i class="fa-solid fa-calendar-day text-7xl text-yellow-500 mb-4 block text-center"></i>
+        <h3 class="text-xl font-semibold text-center mb-4">Today's Appointments</h3>
+        <button class="w-full bg-yellow-500 text-white py-2 rounded-xl hover:bg-yellow-600">
+          <a href="todays_appointment.html" class="block w-full h-full">View Now</a>
+        </button>
+      </div>
+
+      <!-- Patient List -->
+      <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition hover:scale-105">
+        <i class="fa-solid fa-users text-7xl text-teal-600 mb-4 block text-center"></i>
+        <h3 class="text-xl font-semibold text-center mb-4">Patient List</h3>
+        <button class="w-full bg-teal-600 text-white py-2 rounded-xl hover:bg-teal-700">
+          <a href="patient_list.html" class="block w-full h-full">View List</a>
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-center text-sm text-gray-500 p-5">
+    © 2025 Smart Medical System. All rights reserved.
+  </footer>
+
+</body>
+</html>
